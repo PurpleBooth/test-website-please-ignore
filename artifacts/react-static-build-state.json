@@ -1,0 +1,65 @@
+{
+  "prefetchRate": 5,
+  "maxThreads": null,
+  "disableRoutePrefixing": false,
+  "outputFileRate": 100,
+  "extensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx"
+  ],
+  "minLoadTime": 200,
+  "disablePreload": false,
+  "disableRuntime": false,
+  "preloadPollInterval": 300,
+  "productionSourceMaps": false,
+  "silent": false,
+  "entry": "/Users/billie/Code/test-website-please-ignore/src/index.tsx",
+  "basePath": ".",
+  "plugins": [
+    "react-static-plugin-typescript",
+    [
+      "/Users/billie/Code/test-website-please-ignore/node_modules/react-static-plugin-source-filesystem/node.api.js",
+      {
+        "location": "/Users/billie/Code/test-website-please-ignore/src/pages"
+      }
+    ],
+    "/Users/billie/Code/test-website-please-ignore/node_modules/react-static-plugin-reach-router/browser.api.js",
+    "/Users/billie/Code/test-website-please-ignore/node_modules/react-static-plugin-sitemap/dist/node.api.js",
+    "/Users/billie/Code/test-website-please-ignore"
+  ],
+  "paths": {
+    "ROOT": "/Users/billie/Code/test-website-please-ignore",
+    "SRC": "/Users/billie/Code/test-website-please-ignore/src",
+    "DIST": "/Users/billie/Code/test-website-please-ignore/dist",
+    "ASSETS": "/Users/billie/Code/test-website-please-ignore/dist",
+    "PLUGINS": "/Users/billie/Code/test-website-please-ignore/plugins",
+    "TEMP": "/Users/billie/Code/test-website-please-ignore/tmp",
+    "ARTIFACTS": "/Users/billie/Code/test-website-please-ignore/artifacts",
+    "PUBLIC": "/Users/billie/Code/test-website-please-ignore/public",
+    "NODE_MODULES": "/Users/billie/Code/test-website-please-ignore/node_modules",
+    "EXCLUDE_MODULES": "/Users/billie/Code/test-website-please-ignore/node_modules",
+    "PACKAGE": "/Users/billie/Code/test-website-please-ignore/package.json",
+    "HTML_TEMPLATE": "/Users/billie/Code/test-website-please-ignore/dist/index.html",
+    "STATIC_DATA": "/Users/billie/Code/test-website-please-ignore/dist/staticData"
+  },
+  "siteRoot": "/",
+  "publicPath": "/./",
+  "assetsPath": "",
+  "extractCssChunks": false,
+  "inlineCss": false,
+  "babelExcludes": [],
+  "devServer": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "terser": {
+    "terserOptions": {
+      "mangle": {},
+      "parse": {},
+      "compress": {},
+      "output": {}
+    }
+  }
+}
