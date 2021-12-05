@@ -36,7 +36,7 @@ const Index: FunctionComponent = () => {
           Please ignore
         </p>
 
-        {text ? <div className={"font-sans text transition-all duration-400"}>{text}</div>: <div className={"blur filter line-clamp-1"}>Neque porro quisquam est </div>}
+        {text ? <div className={"font-sans text transition-all"}>{text}</div>: <div className={"blur filter line-clamp-1"}>&nbsp;</div>}
       </div>
     </div>
   );
