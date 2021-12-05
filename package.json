@@ -19,7 +19,7 @@
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.4.0",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "concurrently": "^6.4.0",
     "ipfs-core": "^0.12.2",
     "ipfs-core-types": "^0.8.4",
