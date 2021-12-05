@@ -37,6 +37,7 @@ const Index: FunctionComponent = () => {
         </p>
 
         {text && <p className={"font-sans text"}>{text}</p>}
+        {!text && <div className={"animate-pulse bg-indigo-300"}>&nbsp;</div>}
       </div>
     </div>
   );
