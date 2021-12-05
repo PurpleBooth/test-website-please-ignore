@@ -29,7 +29,6 @@ export default function useIpfsFactory(options: FactoryOptions) {
     startIpfs()
     return function cleanup() {
       if (ipfs && ipfs.stop) {
-        console.log('Stopping IPFS')
         ipfs.stop().catch((err: unknown) => console.error(err))
         ipfs = null
         setIpfsReady(false)
@@ -41,17 +40,12 @@ export default function useIpfsFactory(options: FactoryOptions) {
     let browser: undefined | WindowWithIpfs = window
 
     if (ipfs) {
-      console.log('IPFS already started')
     } else if (browser && browser?.ipfs && browser?.ipfs?.enable) {
-      console.log('Found window.ipfs')
       ipfs = await browser.ipfs.enable(options)
     } else {
       try {
-        console.time('IPFS Started')
         ipfs = await create()
-        console.timeEnd('IPFS Started')
       } catch (error) {
-        console.error('IPFS init error:', error)
         ipfs = null
         setIpfsInitError(error)
       }

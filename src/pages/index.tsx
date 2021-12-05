@@ -2,15 +2,18 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 import useIpfsFactory from "../hooks/use-ipfs-factory";
 
 const Index: FunctionComponent = () => {
-  const { ipfs } = useIpfsFactory({ commands: ['cat'] })
+  const { ipfs, isIpfsReady, ipfsInitError } = useIpfsFactory({ commands: ['cat'] })
   const [text, setText] = useState<string | null>(null)
   const ipfsPath: string = "QmVNZKviQ5iA4nyrgtofRwGY1umVnMiVTJfxJEnNHzJBZb";
+
+  if (ipfsInitError) {
+    console.error("Ipfs failed to start", ipfsInitError)
+  }
 
   useEffect(() => {
     if (!ipfs) {
       return;
     }
-
 
     (async () => {
       const catChunks = await ipfs.cat(ipfsPath)
@@ -21,7 +24,7 @@ const Index: FunctionComponent = () => {
 
       setText(results.join(""))
     })();
-  }, [ipfs, text, ipfsPath])
+  }, [ipfs, text, ipfsPath, isIpfsReady])
 
   return (
     <div className={"flex justify-center my-10"}>
