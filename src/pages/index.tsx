@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo, useState } from 'react'
+import React, { FunctionComponent, useEffect, useState } from 'react'
 import useIpfsFactory from "../hooks/use-ipfs-factory";
 
 const Index: FunctionComponent = () => {
@@ -6,17 +6,17 @@ const Index: FunctionComponent = () => {
   const [text, setText] = useState<string | null>(null)
   const ipfsPath: string = "QmVNZKviQ5iA4nyrgtofRwGY1umVnMiVTJfxJEnNHzJBZb";
 
-  useMemo(() => {
+  useEffect(() => {
     if (!ipfs) {
       return;
     }
 
 
     (async () => {
-      const catResults = await ipfs.cat(ipfsPath)
+      const catChunks = await ipfs.cat(ipfsPath)
       let results = [];
-      for await (const x of catResults) {
-        results.push(new TextDecoder("utf8").decode(x))
+      for await (const chunk of catChunks) {
+        results.push(new TextDecoder("utf8").decode(chunk))
       }
 
       setText(results.join(""))
@@ -33,8 +33,7 @@ const Index: FunctionComponent = () => {
           Please ignore
         </p>
 
-        <p className={"font-sans text"}>test: {text}
-        </p>
+        {text && <p className={"font-sans text"}>{text}</p>}
       </div>
     </div>
   );
